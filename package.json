@@ -2,6 +2,7 @@
   "name": "julian-griffin-portfolio",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Work-first portfolio for data, AI, and automation engineer Julian Griffin.",
   "scripts": {
     "dev": "next dev",
