@@ -40,7 +40,6 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -90,6 +89,7 @@ button:focus-visible {
 .nav-link {
   min-height: 2rem;
   padding-block: 0.45rem;
+  color: inherit;
   transition:
     color 160ms ease,
     text-decoration-color 160ms ease;
@@ -260,6 +260,7 @@ button:focus-visible {
 }
 
 .heading-link {
+  color: inherit;
   background-image: linear-gradient(var(--accent), var(--accent));
   background-position: 0 100%;
   background-repeat: no-repeat;
