@@ -205,7 +205,12 @@ button:focus-visible {
   margin-bottom: clamp(3.5rem, 7vw, 6rem);
 }
 
+.section-heading.is-closing {
+  margin-bottom: 0;
+}
+
 .section-heading h2,
+.about-section h1,
 .about-section h2,
 .case-section h2 {
   max-width: 47rem;
@@ -294,6 +299,26 @@ button:focus-visible {
 
 .project-visual-compact .visual-canvas {
   min-height: 23rem;
+}
+
+.visual-canvas.has-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--panel);
+}
+
+.project-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 32rem;
+  object-fit: contain;
+}
+
+.project-visual-compact .project-media {
+  max-height: 26rem;
 }
 
 .visual-caption {

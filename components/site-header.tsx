@@ -33,7 +33,7 @@ export function SiteHeader() {
               </Link>
             </li>
             <li>
-              <Link className="nav-link" href="/#about">
+              <Link className="nav-link" href="/about">
                 About
               </Link>
             </li>

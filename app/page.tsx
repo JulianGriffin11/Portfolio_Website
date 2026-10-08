@@ -68,12 +68,12 @@ export default function Home() {
           <aside className="hero-aside" aria-label="Engineering approach">
             <p className="eyebrow">Working principle</p>
             <p>
-              Deterministic systems own retrieval, calculations, filtering,
-              state, and delivery.
+              Simple enough that another person can explain the result without
+              a walkthrough.
             </p>
             <p>
-              Language models are used selectively for interpretation, ranking,
-              and writing—where judgment adds value.
+              Accuracy depends on that clarity: clear sources, plain rules, and
+              a result someone else can check.
             </p>
             <div className="hero-location">
               <span aria-hidden="true" className="status-dot" />
@@ -87,11 +87,11 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">Selected work</p>
-            <h2>Systems built around real information problems.</h2>
+            <h2>End-to-end data solutions.</h2>
           </div>
           <p>
-            Three projects spanning document intelligence, financial data, and
-            stateful research automation.
+            Three projects that carry the data from the source through to a
+            result someone can use.
           </p>
         </div>
         <div className="project-list">
@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       <section className="site-shell section-block" aria-labelledby="build-title">
-        <div className="section-heading">
+        <div className="section-heading is-closing">
           <div>
             <p className="eyebrow">How I build</p>
             <h2 id="build-title">Keep it simple, stupid.</h2>
@@ -111,57 +111,6 @@ export default function Home() {
             Useful AI starts with clear data boundaries, inspectable decisions,
             and honest failure states.
           </p>
-        </div>
-        <ol className="principles">
-          <li>
-            <span>01 / Structure</span>
-            <h3>Model the data path first.</h3>
-            <p>
-              Make sources, transformations, identifiers, and state explicit
-              before adding a model.
-            </p>
-          </li>
-          <li>
-            <span>02 / Judgment</span>
-            <h3>Use models for bounded work.</h3>
-            <p>
-              Give language models checked context and narrow responsibilities:
-              interpret, rank, or write.
-            </p>
-          </li>
-          <li>
-            <span>03 / Operations</span>
-            <h3>Design the failure path too.</h3>
-            <p>
-              Prefer idempotency, validation, citations, retries, and visible
-              state over optimistic execution.
-            </p>
-          </li>
-        </ol>
-      </section>
-
-      <section className="site-shell about-section" id="about">
-        <div>
-          <p className="eyebrow">About</p>
-          <h2>Technical depth, tied to the business question.</h2>
-        </div>
-        <div className="about-copy">
-          <p>
-            My statistics background shapes how I approach software: define
-            what the data means, preserve comparability, and make uncertainty
-            visible. Experience with financial information and business
-            operations keeps the work anchored to decisions people actually
-            need to make.
-          </p>
-          <p>
-            I&apos;m especially interested in the connective work between data
-            sources, backend systems, model boundaries, and dependable
-            delivery.
-          </p>
-          <a className={buttonVariants({ variant: "text" })} href={siteConfig.linkedin}>
-            Connect with me on LinkedIn
-            <span aria-hidden="true">↗</span>
-          </a>
         </div>
       </section>
     </main>

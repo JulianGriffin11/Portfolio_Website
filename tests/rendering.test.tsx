@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
+import AboutPage from "@/app/about/page";
 import Home from "@/app/page";
 import ProjectPage from "@/app/work/[slug]/page";
 import { SiteHeader } from "@/components/site-header";
@@ -13,7 +14,7 @@ describe("rendered navigation and content", () => {
 
     expect(html).toContain('aria-label="Primary navigation"');
     expect(html).toContain('href="/#work"');
-    expect(html).toContain('href="/#about"');
+    expect(html).toContain('href="/about"');
     expect(html).toContain(`href="${siteConfig.github}"`);
     expect(html).toContain(`href="${siteConfig.linkedin}"`);
     expect(html).toContain("opens in a new tab");
@@ -25,12 +26,32 @@ describe("rendered navigation and content", () => {
     expect(html).toContain(siteConfig.headline);
     expect(html).toContain("AI Engineer, Data Analyst, and in Data Science");
     expect(html).toContain("Keep it simple, stupid.");
+    expect(html).toContain("End-to-end data solutions.");
+    expect(html).toContain("Simple enough that another person can explain");
+    expect(html).not.toContain("01 / Structure");
+    expect(html).not.toContain("Communication, tied to the technical work.");
     expect(html).toContain("View selected work");
+    expect(html).toContain("Stack:");
+    expect(html).toContain("React, TypeScript, Python, Postgres, OpenAI, Langfuse, Render");
+    expect(html).toContain("Python, Postgres, OpenAI, Pydantic, Resend, GitHub Actions");
+    expect(html).not.toContain("Engineering focus:");
+    expect(html).not.toContain("Read case study");
+    expect(html).not.toContain('href="/work/');
 
     for (const project of projects) {
       expect(html).toContain(project.title);
-      expect(html).toContain(`href="/work/${project.slug}"`);
+      expect(html).toContain(`href="${project.repository}"`);
     }
+  });
+
+  it("renders the about page", () => {
+    const html = renderToStaticMarkup(<AboutPage />);
+
+    expect(html).toContain("Communication, tied to the technical work.");
+    expect(html).toContain("data solutions, analytics, pipelines, and engineering");
+    expect(html).toContain("one product");
+    expect(html).toContain("Connect with me on LinkedIn");
+    expect(html).toContain(siteConfig.linkedin);
   });
 
   it.each(projects)(

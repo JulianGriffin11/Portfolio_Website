@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { projectMediaSrc } from "@/lib/project-media";
 import { getProject, projects } from "@/lib/projects";
 
 describe("project data", () => {
@@ -27,13 +28,17 @@ describe("project data", () => {
       expect(project.tradeoffs.length).toBeGreaterThanOrEqual(2);
       expect(project.limitations.length).toBeGreaterThanOrEqual(2);
       expect(project.nextImprovements.length).toBeGreaterThanOrEqual(3);
-      expect(project.stack.length).toBeGreaterThanOrEqual(8);
+      expect(project.stack.length).toBeGreaterThanOrEqual(6);
       expect(project.repository).toMatch(
         /^https:\/\/github\.com\/JulianGriffin11\//,
       );
       expect(project.visualLabel).toMatch(/^System representation/);
     },
   );
+
+  it("looks for a project recording beside the slug and ignores unknown files", () => {
+    expect(projectMediaSrc("not-a-project")).toBeNull();
+  });
 
   it("returns only known slugs", () => {
     expect(getProject("earnings-helper")?.title).toBe("Earnings Helper");

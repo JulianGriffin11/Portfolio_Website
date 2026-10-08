@@ -1,7 +1,6 @@
-import Link from "next/link";
-
 import { ProjectVisual } from "@/components/project-visual";
 import { buttonVariants } from "@/components/ui/button";
+import { projectMediaSrc } from "@/lib/project-media";
 import type { Project } from "@/lib/projects";
 
 interface ProjectCardProps {
@@ -17,35 +16,33 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <span>{project.category}</span>
         </div>
         <h3 className="mt-5 text-3xl font-semibold tracking-[-0.045em] text-[var(--ink)] sm:text-4xl">
-          <Link className="heading-link" href={`/work/${project.slug}`}>
-            {project.title}
-          </Link>
+          {project.title}
         </h3>
         <p className="mt-5 max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
           {project.summary}
         </p>
         <p className="mt-5 max-w-2xl text-sm leading-6 text-[var(--ink-soft)]">
-          <strong className="font-semibold text-[var(--ink)]">
-            Engineering focus:
-          </strong>{" "}
-          {project.story}
+          <strong className="font-semibold text-[var(--ink)]">Stack:</strong>{" "}
+          {project.stack.join(", ")}
         </p>
         <div className="mt-7 flex flex-wrap items-center gap-4">
-          <Link
+          <a
             className={buttonVariants({ variant: "outline" })}
-            href={`/work/${project.slug}`}
+            href={project.repository}
+            rel="noreferrer"
+            target="_blank"
           >
-            Read case study
-            <span aria-hidden="true">↗</span>
-            <span className="sr-only">: {project.title}</span>
-          </Link>
-          <a className={buttonVariants({ variant: "text" })} href={project.repository}>
             Repository
-            <span className="sr-only"> for {project.title}</span>
+            <span aria-hidden="true">↗</span>
+            <span className="sr-only"> for {project.title} (opens in a new tab)</span>
           </a>
         </div>
       </div>
-      <ProjectVisual compact project={project} />
+      <ProjectVisual
+        compact
+        mediaSrc={projectMediaSrc(project.slug)}
+        project={project}
+      />
     </article>
   );
 }

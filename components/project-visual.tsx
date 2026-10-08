@@ -2,6 +2,7 @@ import type { Project } from "@/lib/projects";
 
 interface ProjectVisualProps {
   project: Project;
+  mediaSrc: string | null;
   compact?: boolean;
 }
 
@@ -98,27 +99,46 @@ function DigestVisual() {
   );
 }
 
-export function ProjectVisual({ project, compact = false }: ProjectVisualProps) {
+export function ProjectVisual({
+  project,
+  mediaSrc,
+  compact = false,
+}: ProjectVisualProps) {
+  const caption = mediaSrc ? "Product recording" : project.visualLabel;
+  const description = mediaSrc
+    ? `A recording of ${project.title} in use.`
+    : project.visualDescription;
+
   return (
     <figure
       className={compact ? "project-visual project-visual-compact" : "project-visual"}
       aria-describedby={`visual-description-${project.slug}`}
       aria-labelledby={`visual-caption-${project.slug}`}
     >
-      <div className="visual-canvas">
-        {project.visual === "retrieval" && <RetrievalVisual />}
-        {project.visual === "metrics" && <MetricsVisual />}
-        {project.visual === "digest" && <DigestVisual />}
+      <div className={mediaSrc ? "visual-canvas has-media" : "visual-canvas"}>
+        {mediaSrc ? (
+          <img
+            alt=""
+            className="project-media"
+            src={mediaSrc}
+          />
+        ) : (
+          <>
+            {project.visual === "retrieval" && <RetrievalVisual />}
+            {project.visual === "metrics" && <MetricsVisual />}
+            {project.visual === "digest" && <DigestVisual />}
+          </>
+        )}
       </div>
       <figcaption
         className="visual-caption"
         id={`visual-caption-${project.slug}`}
       >
-        <span>{project.visualLabel}</span>
+        <span>{caption}</span>
         <span aria-hidden="true">↗</span>
       </figcaption>
       <p className="sr-only" id={`visual-description-${project.slug}`}>
-        {project.visualDescription}
+        {description}
       </p>
     </figure>
   );

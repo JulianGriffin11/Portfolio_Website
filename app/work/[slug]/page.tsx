@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ProjectVisual } from "@/components/project-visual";
 import { SystemFlow } from "@/components/system-flow";
 import { buttonVariants } from "@/components/ui/button";
+import { projectMediaSrc } from "@/lib/project-media";
 import { getProject, projects } from "@/lib/projects";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
@@ -62,6 +63,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     projectIndex > 0 ? projects[projectIndex - 1] : undefined;
   const nextProject =
     projectIndex < projects.length - 1 ? projects[projectIndex + 1] : undefined;
+  const mediaSrc = projectMediaSrc(project.slug);
   const projectUrl = absoluteUrl(`/work/${project.slug}`);
   const softwareJsonLd = {
     "@context": "https://schema.org",
@@ -146,13 +148,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         >
           <div>
             <p className="eyebrow">Representative evidence</p>
-            <h2 id="evidence-title">The output, without pretending it is a screenshot.</h2>
+            <h2 id="evidence-title">
+              {mediaSrc
+                ? "The product, in motion."
+                : "The output, without pretending it is a screenshot."}
+            </h2>
           </div>
           <div>
-            <ProjectVisual project={project} />
+            <ProjectVisual mediaSrc={mediaSrc} project={project} />
             <p className="evidence-note">
-              This original diagram communicates the product&apos;s information
-              shape. It is a system representation, not a live product capture.
+              {mediaSrc
+                ? "A recording of the product in use."
+                : "This original diagram communicates the product's information shape. It is a system representation, not a live product capture."}
             </p>
           </div>
         </section>
