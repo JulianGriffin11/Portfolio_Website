@@ -10,11 +10,10 @@ function resolveSiteUrl(value: string | undefined): URL {
 
 export const siteConfig = {
   name: "Julian Griffin",
-  title: "Julian Griffin — Data, AI & Automation",
+  title: "Julian Griffin — AI Engineer, Data Analyst & Data Science",
   description:
-    "Julian Griffin builds reliable data, AI, and automation systems that turn complex information into useful decisions.",
-  headline:
-    "I build data and AI systems that turn complex information into useful decisions.",
+    "Julian Griffin is an AI Engineer and Data Analyst working in data science. He makes complex data simple.",
+  headline: "I make complex data simple.",
   url: resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
   github: "https://github.com/JulianGriffin11",
   linkedin: "https://www.linkedin.com/in/juliangriffin11/",

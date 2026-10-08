@@ -19,10 +19,12 @@ describe("rendered navigation and content", () => {
     expect(html).toContain("opens in a new tab");
   });
 
-  it("renders the exact headline and all selected-work routes", () => {
+  it("renders the headline and the current focus", () => {
     const html = renderToStaticMarkup(<Home />);
 
     expect(html).toContain(siteConfig.headline);
+    expect(html).toContain("AI Engineer, Data Analyst, and in Data Science");
+    expect(html).toContain("Keep it simple, stupid.");
     expect(html).toContain("View selected work");
 
     for (const project of projects) {

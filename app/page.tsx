@@ -18,13 +18,13 @@ const personJsonLd = {
     addressCountry: "CA",
   },
   description:
-    "Statistics graduate focused on data engineering, AI engineering, and automation.",
+    "Statistics graduate working as an AI Engineer, Data Analyst, and in Data Science.",
   knowsAbout: [
-    "Data engineering",
     "Artificial intelligence engineering",
+    "Data analysis",
+    "Data science",
     "Analytics",
     "Financial information",
-    "Business process automation",
   ],
 };
 
@@ -41,12 +41,12 @@ export default function Home() {
       <section className="site-shell hero">
         <div className="hero-grid">
           <div>
-            <p className="eyebrow">Data · AI · Automation</p>
+            <p className="eyebrow">AI Engineer · Data Analyst · Data Science</p>
             <h1 className="hero-title">{siteConfig.headline}</h1>
             <p className="hero-deck">
               I&apos;m Julian Griffin, a statistics graduate experienced with
               data, analytics, financial information, and business operations.
-              I focus on Data Engineering, AI Engineering, and Automation.
+              I work as an AI Engineer, Data Analyst, and in Data Science.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -105,7 +105,7 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">How I build</p>
-            <h2 id="build-title">Keep intelligence inside a reliable system.</h2>
+            <h2 id="build-title">Keep it simple, stupid.</h2>
           </div>
           <p>
             Useful AI starts with clear data boundaries, inspectable decisions,
